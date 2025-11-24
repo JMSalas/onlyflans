@@ -1,0 +1,22 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}
+    Contacto Onlyflans
+{% endblock %}
+
+{% block content %}
+<div class="container px-3">
+    <div class="shadow mx-auto text-center pb-5 my-5">
+        <div class="h1 bg-info py-4">
+            Consulta Recibida Exitosamente
+        </div>
+        <div class="fs-2 pt-5 pb-4">
+            Gracias por contactarte con OnlyFlans, te responderemos en breve
+        </div>
+        <div class="pt-4 pb-2">
+            <a class="btn btn-info fw-bold" href="{% url 'index' %}">Volver al Inicio</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

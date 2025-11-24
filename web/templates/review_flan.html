@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}
+    Agregar Review Flan
+{% endblock %}
+
+{% block content %}
+<div class="container text-center py-5 my-5">    
+    <div class="col-8 shadow mx-auto pb-5">
+        <div class="h1 bg-info py-3">Review</div>
+            <form method="POST">
+                {% csrf_token %}
+                
+                {{ form.as_p }}
+
+                <input type="submit" class ="btn btn-info fw-bold" value="Enviar">
+            </form>
+            <button class="btn btn-secondary mt-3" onclick="window.history.back()"><i class="fa-solid fa-arrow-left"></i></button>
+        </div>
+    </div>        
+</div>
+{% endblock %}

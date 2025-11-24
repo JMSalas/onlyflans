@@ -1,0 +1,66 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}
+    Acerca de Onlyflans
+{% endblock %}
+
+{% block content %}
+<main class="container pt-5 px-2">
+    <section class="row shadow-lg">
+        <div class="col-2 d-none d-xl-block px-0">
+            <div class="row h-100">
+                <div class = "col-12">
+                    <img src="{%static 'img/flan1.jpg' %}" class="img-fluid h-100">    
+                </div>
+                <div class = "col-12">
+                    <img src="{%static 'img/flan2.jpg' %}" class="img-fluid h-100">    
+                </div>
+                <div class = "col-12">
+                    <img src="{%static 'img/flan3.jpg' %}" class="img-fluid h-100">    
+                </div>    
+            </div>
+        </div>
+
+        <article class="col">
+            <h1 class="text-center py-3 border-bottom">Nosotros</h1>
+            <p><em>Onlyflans</em> es una empresa enfocada al mundo de la pastelería y los postres, en especial a la venta de flan, nace el año 2021 en Santiago de Chile como una empresa familiar que pretende entregar productos de calidad a sus clientes.</p>
+            <p>Estamos ubicados en providencia, a pasos del metro Parque Bustamante.</p>
+            <p>Nuestro trabajo alcanza su fin cuando sientes el cariño que ponemos en cada detalle.</p>
+            <p>Creemos en la necesidad de poner una pausa a la vorágine del día a día y darse tiempo para compartir con la familia y los amigos. Para mirarse, para hablar, para recordarnos que nos queremos. Estamos seguros de que es ahí donde reside la verdadera felicidad.</p>
+            <p>La vida es una suma de momentos irrepetibles, queremos hacerlos más dulces, más pausados, y vividos con nuestros deliciosos productos.</p><br> 
+            <p>Somos <em>Onlyflans</em>, artesanía en flanes.</p>    
+        </article>
+    </section>
+
+    <section class="row shadow-lg mt-5 mb-5">
+        <div class="col-2 d-none d-xl-block px-0">
+            <div class="row h-100">
+                <div class = "col-12">
+                    <img src="{%static 'img/flan4.jpg' %}" class="img-fluid h-100">    
+                </div>
+                <div class = "col-12">
+                    <img src="{%static 'img/flan5.jpg' %}" class="img-fluid h-100">    
+                </div>
+                <div class = "col-12">
+                    <img src="{%static 'img/flan6.jpg' %}" class="img-fluid h-100">    
+                </div>    
+            </div>
+        </div>
+
+        <article class="col text-center">
+            <h1 class="py-3 border-bottom">Nuestro Compromiso</h1>
+            <h4>Sabor</h4>
+            <p>Es el resultado de un trabajo realizado con amor, dedicación e ingredientes seleccionados.</p>
+            <h4>Calidad</h4>
+            <p>Nuestro proceso de elaboración destaca por su excelencia y rigurosidad.</p>
+            <h4>Frescura</h4>
+            <p>Un elemento siempre presente en nuestra cocina, tanto en los ingredientes como en el producto final, que llevamos directamente desde la puerta del horno a tu paladar.
+            <h4>Elaboración artesanal</h4>
+            <p>Rescatamos la dedicación de la repostería hecha en casa, con cariño y preocupación por los detalles.</p>
+            <h4>Variedad</h4>
+            <p>Amplitud de deliciosas recetas para disfrutar y compartir.</p>    
+        </article>
+    </section>
+</main>
+{% endblock %}

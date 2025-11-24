@@ -1,0 +1,33 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    Favoritos
+{% endblock %}
+
+{% block content %}
+<main class="container text-center">
+    <h1 class="py-4">Tus Flanes Favoritos</h1>
+    <div class="row justify-content-center">
+        {% if favoritos %}
+        {%for favorito in favoritos %}
+        <div class="col-xxl-3 col-xl-4 col-lg-6 col-sm-12 px-5 pb-5">
+            <div class="card px-0 border-0 shadow-lg">
+                <img src="{{ favorito.id_flan.image_url }}" class="card-img-top" alt="...">
+                <div class="card-body border-bottom border-5 border-info">
+                    <h5 class="card-title border-bottom border-info">{{ favorito.id_flan.name }}</h5>
+                    
+                    <p class="card-text">$ {{ favorito.id_flan.precio }}</p>
+                    
+                    <div>
+                        <a class="btn btn-info" href="{% url 'detalle_flan' flan_slug=favorito.id_flan.slug %}">Detalle</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>Aun no has ingresado ningún flan como favorito</p>
+        {% endif %}
+    </div>  
+</main>
+{% endblock %}

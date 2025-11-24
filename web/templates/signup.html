@@ -1,0 +1,50 @@
+{% extends 'base/base.html'%}
+
+{% block title %}
+    Onlyflans Sign Up
+{% endblock %}
+
+{% block content %}
+    <div class="container py-5 my-5 text-center">
+        <div class="col-sm-10 col-md-8 col-lg-7 col-xl-6 shadow mx-auto pb-5">
+            <h1 class="bg-info py-3">Registrarse en OnlyFlans</h1>
+            <form method="post">
+                {% csrf_token %}
+                <div class="text-danger fw-bold">
+                    {{ form.non_field_errors }}
+                </div>
+                <div class="pt-3">
+                    <p>{{ form.username.errors }}</p>
+                    <p class="fw-bold">{{ form.username.label_tag }}</p>
+                    {{ form.username }}
+                </div>
+                <div class="pt-3">
+                    <p>{{ form.first_name.errors }}</p>
+                    <p class="fw-bold">{{ form.first_name.label_tag }}</p>
+                    {{ form.first_name }}
+                </div>
+                <div class="pt-3">
+                    <p>{{ form.last_name.errors }}</p>
+                    <p class="fw-bold">{{ form.last_name.label_tag }}</p>
+                    {{ form.last_name }}
+                </div>
+                <div class="pt-3">
+                    <p>{{ form.email.errors }}</p>
+                    <p class="fw-bold">{{ form.email.label_tag }}</p>
+                    {{ form.email }}
+                </div>
+                <div class="pt-3">
+                    <p>{{ form.password1.errors }}</p>
+                    <p class="fw-bold">{{ form.password1.label_tag }}</p>
+                    {{ form.password1 }}
+                </div>
+                <div class="pt-3 pb-5">
+                    <p>{{ form.password2.errors }}</p>
+                    <p class="fw-bold">{{ form.password2.label_tag }}</p>
+                    {{ form.password2 }}
+                </div>
+                <input type="submit" class="btn btn-info fw-bold" value="Registrarse" style="width: 30%;">
+            </form>
+        </div>
+    </div>
+{% endblock %}

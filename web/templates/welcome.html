@@ -1,0 +1,66 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}
+    Bienvenido a Onlyflans
+{% endblock %}
+
+{% block content %}
+<main class="container">
+    <section>
+        <div class="row align-items-center mt-4">
+            <div class="col-6 px-0 d-none d-lg-block">
+                <img src="{% static 'img/flan_background.jpg' %}" class="img-fluid h-100" alt="" style = "max-height: 300px;">
+            </div>
+            <div class="col-12 col-lg-6 border-bottom border-top border-3 border-warning py-4 text-center">
+                <span class="text-center display-4" >Bienvenido</span>
+                <span class="arizonia-regular text-center text-info fw-bold display-1">{{ user.first_name }}</span>
+            </div>
+        </div>
+    </section>
+    
+    <section class = "py-3">
+        <div class = "py-5 text-center fs-2">
+            Te recomendados estos productos solo para clientes premium:
+        </div>
+        <div id="carouselFlans" class="carousel slide">
+            <div class="carousel-indicators">
+                {% for i in slides %}
+                <button type="button" data-bs-target="#carouselFlans" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}" aria-current="{% if forloop.first %}true{% endif %}"></button>
+                {% endfor %}
+            </div>
+            <div class="carousel-inner">
+                {% for slide in slides %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">    
+                    <div class="row text-center justify-content-around">
+                    {%for flan in slide %}
+                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 px-1 pb-5">
+                            <div class="card px-0 border-0 shadow-lg">
+                                <img src="{{ flan.image_url }}" class="card-img-top" alt="...">
+                                <div class="card-body border-bottom border-5 border-info">
+                                    <h5 class="card-title border-bottom border-info fw-bold">{{ flan.name }}</h5>
+                                    <p class="card-text fw-bold">$ {{ flan.precio }}</p>
+                                    <div>
+                                        <a class="btn btn-info fw-bold text-white" href="{% url 'detalle_flan' flan_slug=flan.slug %}">Detalle</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselFlans" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselFlans" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+</main>
+{% endblock %}

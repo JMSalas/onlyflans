@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg container-fluid" style="background-color: rgb(243, 196, 86);">
+  <div class="container px-0">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav fs-5">
+        <li class="nav-item ps-0 pe-4">
+          <a class="nav-link text-dark active" aria-current="page" href="{% url 'index' %}"><i class="fa-solid fa-house me-3"></i>Inicio</a>
+        </li>
+        <li class="nav-item pe-4">
+          <a class="nav-link text-dark" href="{% url 'about' %}"><i class="fa-solid fa-whiskey-glass fa-rotate-180 me-3"></i>Acerca</a>
+        </li>
+        <li class="nav-item pe-4">
+          <a class="nav-link text-dark" href="{% url 'contact' %}"><i class="fa-solid fa-comment me-3"></i>Contacto</a>
+        </li>
+        {% if user.is_authenticated %}
+        <li class="nav-item pe-4">
+          <a class="nav-link text-dark" href="{% url 'welcome' %}"><i class="fa-solid fa-heart me-3"></i>Bienvenido</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+    <div>
+      <ul class="navbar-nav fs-5 fw-bold">
+        <span>{% if user.is_authenticated %}</span>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-user me-3"></i>{{ user.get_username }}
+          </a>
+          <ul class="dropdown-menu text-end">
+            <li><a class="dropdown-item" href="{% url 'favoritos' %}">Favoritos<i class="fa-solid fa-star ms-3"></i></a></li>
+            <li><a class="dropdown-item" href="{% url 'logout' %}">Log Out<i class="fa-solid fa-right-from-bracket ms-4"></i></a></li>
+          </ul>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="{% url 'login' %}"><i class="fa-solid fa-right-to-bracket me-3"></i>Log In</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>

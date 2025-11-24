@@ -1,0 +1,38 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}
+    Contacto Onlyflans
+{% endblock %}
+
+{% block content %}
+<div class="container text-center py-5 my-5">    
+    <div class="col-10 col-md-8 shadow mx-auto pb-5">
+        <div class="h1 fw-semibold bg-info py-3">Contacto</div>
+            <form method="POST">
+                {% csrf_token %}
+                
+                <div class="pt-3">
+                    <span class="text-start text-danger fw-bold">{{ form.customer_email.errors }}</span>
+                    <span class="fw-bold" >{{ form.customer_email.label_tag }}</span>
+                    {{ form.customer_email }}
+                </div>
+
+                <div class="pt-3">
+                    <span class="text-start text-danger fw-bold">{{ form.customer_name.errors }}</span>
+                    <span class="fw-bold" >{{ form.customer_name.label_tag }}</span>
+                    {{ form.customer_name }}
+                </div>
+
+                <div class="pt-3 pb-5">
+                    <span class="text-start text-danger fw-bold">{{ form.message.errors }}</span>
+                    <span class="fw-bold" >{{ form.message.label_tag }}</span>
+                    {{ form.message }}
+                </div>
+
+                <input type="submit" class ="btn btn-info fw-bold" value="Enviar">
+            </form>
+        </div>
+    </div>        
+</div>
+{% endblock %}
